@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import "./navbar.css"
+import { useDispatch } from "react-redux"
 
-function Navbar({ setInputData }) {
+function Navbar() {
+    const dispatch = useDispatch()
     const [input, setInput] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault();
-        setInputData(input);
+        dispatch({ type: "SEARCH", payload: input });
         setInput('');
     }
 

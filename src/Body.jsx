@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./bodystyle.css";
 import { createApi } from "unsplash-js";
+import { useSelector } from "react-redux"
 
 const api = createApi({
   accessKey: "nilYDDih-3h-1woEPPe0xBlthBYQ1KUeq7uJ670PZMI"
@@ -25,7 +26,8 @@ const PhotoComp = ({ photo }) => {
   );
 };
 
-const Body = ({ inputData }) => {
+const Body = () => {
+  const inputData = useSelector((state) => state.inputData)
   const [data, setPhotosResponse] = useState(null);
   console.log(inputData);
 
