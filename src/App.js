@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Banner from "./Banner";
+import Navbar from "./Navbar";
+import Body from "./Body"
 
 function App() {
+  
+  const [inputData, setInputData] = useState('nature') //By default pictures are set to nature
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar setInputData={setInputData}/>
+      <Banner />
+      <Body inputData={inputData} />
     </div>
   );
 }
